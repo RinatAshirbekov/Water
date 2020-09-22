@@ -1,0 +1,60 @@
+﻿@using LivingWater.Data.Entities;
+@model IEnumerable<Customer>
+@{
+    ViewBag.Title = "Main page";
+}
+<div class="container">
+    <h2>List of Waters</h2>
+    @Html.ActionLink("Registr new", "MakeOrder")
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                SurName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Water
+            </th>
+            <th>
+                NumberOwBottles
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CustomerSurName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CustomerLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Water.WaterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.NumberOfBottles)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditOrder", new { id = item.Id}) ||
+                    @Html.ActionLink("Details", "Details", new { id = item.Id}) ||
+                    @Html.ActionLink("Delete", "DeleteOrder", new { id = item.Id}) ||
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

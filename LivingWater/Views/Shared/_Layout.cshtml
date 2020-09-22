@@ -1,0 +1,50 @@
+﻿<DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>@ViewBag.Title - My water - my life</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        @Styles.Render("~/Content/bootstrap.min.css")
+        @Styles.Render("~/Content/water.css")
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <ul class="nav justify-content-center navbar-dark bg-dark">
+                    @*<li class="nav-item"><a class="nav-link active" href="/Home/About">Компании</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/Products">Продукции</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/Contact">Контакты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/News">Новости</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/MakeOrder">Сделать заказ</a></li>*@
+                    <li>@Html.ActionLink("Компании", "About", "Home", new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("Продукции", "Products", "Home", new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("Контакты", "Contact", "Home", new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("Новости", "News", "Home", new { @class = "nav-item nav-link" })</li>
+                    <li>@Html.ActionLink("Сделать заказ", "MakeOrder", "Home", new { @class = "nav-item nav-link" })</li>
+                    <li>
+                        <form class="form-inline my-0 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="поиск..." aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            @RenderBody()
+        </section>
+        <div class="container align-items-end">
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Water - Living Source</p>
+            </footer>
+        </div>
+        @Scripts.Render("~/Scripts/jquery.js")
+        @Scripts.Render("~/Scripts/popper.min.js")
+        @Scripts.Render("~/Scripts/bootstrap.min.js")
+        @Scripts.Render("~/Scripts/jquery.validate.min.js")
+        @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+        @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+        @Scripts.Render("~/Scripts/water.js")
+    </body>
+</html>

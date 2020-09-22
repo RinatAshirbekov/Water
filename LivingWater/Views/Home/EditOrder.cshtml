@@ -1,0 +1,43 @@
+﻿@model LivingWater.Data.Entities.Customer
+@{
+    ViewBag.Title = "EditOrder";
+}
+
+    <div class="container">
+        <h2>EditOrder</h2>
+        <br />
+        @using (Html.BeginForm("EditOrder", "Home", FormMethod.Post))
+        {
+            <div class="form-group px-0 mx-0">
+                @Html.LabelFor(m => m.Id, "Айди заказа") :
+                @Html.DisplayFor(m => m.Id, "Id")
+            </div>
+            <div class="form-group px-0 mx-0">
+                @Html.LabelFor(m => m.CustomerName, "Изменить имя")<br />
+                @Html.EditorFor(m => m.CustomerName)
+            </div>
+            <div class="form-group px-0 mx-0">
+                @Html.LabelFor(m => m.CustomerSurName, "Изменить фамилию", new { @class = "px-0 mx-0" })<br />
+                @Html.EditorFor(m => m.CustomerSurName, new { @class = "form-control col-4" })
+            </div>
+            <div class="form-group px-0 mx-0">
+                @Html.LabelFor(m => m.CustomerLastName, "Изменить отчество")<br />
+                @Html.EditorFor(m => m.CustomerLastName, new { @class = "form-control col-4" })
+            </div>
+            <div class="form-group px-0 mx-0">
+                @Html.LabelFor(m => m.Address, "Изменить адрес доставки")<br />
+                @Html.EditorFor(m => m.Address, new { @class = "form-control col-4" })
+            </div>
+            <div class="form-group px-0 mx-0">
+                @Html.LabelFor(m => m.WaterId, "Выберите воду", new { @class = "px-0 mx-0" })<br />
+                @Html.DropDownListFor(m => m.WaterId, ViewBag.Waters as SelectList, new { @class = "form-group custom-select col-4" })
+            </div>
+            @Html.ValidationMessageFor(m => m.NumberOfBottles, "", new { @class = "text-danger" });
+            <div class="form-group px-0 mx-0">
+                @Html.LabelFor(m => m.NumberOfBottles, "Введите количество бутылей")<br />
+                <input type="number" class="form-control col-4" name="NumberOfBottles" placeholder="Введите количество бутылей">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Заказать</button>
+        }
+        @Html.ActionLink("To Customers info", "Index", "Home")
+    </div>

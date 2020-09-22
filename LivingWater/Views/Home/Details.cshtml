@@ -1,0 +1,23 @@
+﻿@model LivingWater.Data.Entities.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+    <div class="container">
+        <h2>Details</h2>
+        <div>
+            <b>Имя</b> : @Html.DisplayFor(model => model.CustomerName, "Имя") 
+        </div>
+        <div>
+            <b>Фамилия</b> : @Html.DisplayFor(model => model.CustomerSurName, "Фамилия")
+        </div>
+        <div>
+            <b>Отчество</b> : @Html.DisplayFor(model => model.CustomerLastName, "Отчество")
+        </div>
+        <div>
+            <b>Адрес проживания</b>  : @Html.DisplayFor(model => model.Address, "Адрес проживания")
+        </div>
+        @Html.ActionLink("To Customers info","Index","Home")
+    </div>
+
+
